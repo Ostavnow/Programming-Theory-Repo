@@ -1,8 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class Shape : MonoBehaviour
 {
-    // ENCAPSULATION
     private string nameShape;
     public string NameShape
     {
@@ -22,8 +23,7 @@ public class Shape : MonoBehaviour
         }
     }
     public enum ShapeColor{Unidentified,Red,Green,Blue}
-    // ENCAPSULATION
-    protected ShapeColor currentShapeColor;
+    private ShapeColor currentShapeColor;
     public ShapeColor CurrentShapeColor
     {
         get{return currentShapeColor;}
@@ -56,7 +56,6 @@ public class Shape : MonoBehaviour
         nameShapeText = GameObject.Find("Canvas/Panel info/Name").GetComponent<TMP_Text>();
         shapeColorText = GameObject.Find("Canvas/Panel info/Color").GetComponent<TMP_Text>();
     }
-    //ABSTRACTION
     public virtual void UpdatePanelInfo()
     {
         nameShapeText.text = "Name: " + NameShape;
