@@ -1,7 +1,9 @@
-// INHERITANCE
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Capsule : Shape
 {
-    // POLYMORPHISM
     public override void UpdatePanelInfo()
     {
         nameShapeText.text = "Capsule Name: " + NameShape;
