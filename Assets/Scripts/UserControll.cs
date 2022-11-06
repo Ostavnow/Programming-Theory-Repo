@@ -6,9 +6,11 @@ public class UserControll : MonoBehaviour
 {
     private TMP_InputField inputField;
     private Shape currentShape;
+    private TMP_Text currentShapeClass;
     void Start()
     {
         inputField = FindObjectOfType<TMP_InputField>();
+        currentShapeClass = GameObject.Find("Canvas/Panel info/Class").GetComponent<TMP_Text>();
     }
 
     void Update()
@@ -28,18 +30,22 @@ public class UserControll : MonoBehaviour
             if(currentShape is Cube cube)
             {
                 cube.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + cube.GetType();
             }
             else if(currentShape is Sphere sphere)
             {
                 sphere.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + sphere.GetType();
             }
             else if(currentShape is Capsule capsule)
             {
                 capsule.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + capsule.GetType();
             }
             else
             {
                 currentShape.UpdatePanelInfo();
+                currentShapeClass.text = "Class: Cube" + currentShape.GetType();
             }
             Debug.Log("Выбран объект" + currentShape.name);
         }
