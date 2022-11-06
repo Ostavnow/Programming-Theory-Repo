@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class UserControll : MonoBehaviour
 {
     private TMP_InputField inputField;
+    private TMP_Text currentShapeClass;
     private Shape currentShape;
     void Start()
     {
         inputField = FindObjectOfType<TMP_InputField>();
+        currentShapeClass = GameObject.Find("Canvas/Panel info/Class").GetComponent<TMP_Text>();
     }
 
     void Update()
@@ -28,20 +28,23 @@ public class UserControll : MonoBehaviour
             if(currentShape is Cube cube)
             {
                 cube.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + "Cube";
             }
             else if(currentShape is Sphere sphere)
             {
                 sphere.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + "Sphere";
             }
             else if(currentShape is Capsule capsule)
             {
                 capsule.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + "Capsule";
             }
             else
             {
                 currentShape.UpdatePanelInfo();
+                currentShapeClass.text = "Class: " + "Sphere";
             }
-            Debug.Log("Выбран объект" + currentShape.name);
         }
     }
     public void SetName()
